@@ -35,7 +35,7 @@ app.post('/posts/:id/comments',(req,res)=>{
 
     commentsByPostId[req.params.id] = comments;
 
-    res.status(201).json({
+    res.status(200).json({
         comments
     })  
 
