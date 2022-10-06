@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
 const cors = require("cors");
-const axios = require('axios');
+const axios = require('axios')
 
 const app = express();
 app.use(bodyParser.json());
@@ -36,10 +36,18 @@ app.post("/posts", async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 404,
-      message: "please provide valid data",
+      message: "please proVide valid data",
     });
   }
 });
+
+app.post('/events',(req,res)=>{
+  console.log('Received Event',req.body.type)
+
+  res.send({})
+})
+
+
 
 app.listen(4000, () => {
   console.log("Listening on 4000");

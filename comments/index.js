@@ -46,19 +46,21 @@ app.post('/posts/:id/comments',async(req,res)=>{
         }
     })
 
-    res.status(201).json({
+    return res.status(201).json({
         comments
     }) 
-}
-catch(err){
-    res.status(404).json({
+}catch(err){
+    return res.status(404).json({
         status:404,
         message:'Invalid'
     })
 } 
-
-
 }) 
+
+app.post('/events',(req,res)=>{
+    console.log('Event Received',req.body.type)
+    res.send({})
+})
 
 app.listen(4001,()=>{
     console.log('Comments service listening')
